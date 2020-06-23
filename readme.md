@@ -154,12 +154,14 @@ Rstudio (whether on Windows, Macs, Linux) and then run
 install.packages('brms')
 ```
 
-You can test the installation of
-[brms](https://github.com/paul-buerkner/brms) with
+You can test that it worked by running the following code, which should take around 1 minute to complete.
 
 ``` {.R}
-library('brms')
-```
+library(tidyverse)
+library(brms)
 
-If no errors are raised, you can assume the installation was successful.
+data_df <- tibble(x = rnorm(10))
+
+M <- brm(x ~ 1, data = data_df)
+```
 
