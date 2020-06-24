@@ -165,3 +165,39 @@ data_df <- tibble(x = rnorm(10))
 M <- brm(x ~ 1, data = data_df)
 ```
 
+## Trouble getting `rstan` and `brms` working on Windows using R 4.0?
+
+Here's what I did to get `rstan` and `brsm` working on Windows using R 4.0?
+
+1. First, in R, install `rstan`.
+```{.R}
+install.packages("rstan")
+```
+
+2. In Windows, download and run this [Rtools 4 installer](https://cran.r-project.org/bin/windows/Rtools/rtools40-x86_64.exe).
+
+3. Back in R, type the following line.
+```{.R}
+writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")
+```
+
+4. *Restart R*
+
+5. Check that RTools is working.
+
+```{.R}
+pkgbuild::has_build_tools(debug = TRUE)
+```
+
+This should simply return `TRUE`.
+
+5. Install `brms`.
+
+
+```{.R}
+
+install.packages('brms')
+```
+
+6. Test the `brms` code above, i.e. with the `M <- brm(x ~ 1, data = data_df)`.
+```
