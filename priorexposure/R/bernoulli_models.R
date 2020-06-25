@@ -1,5 +1,6 @@
 #' Plot the likelihood function of a Bernoulli/binomial model
 #'
+#' @export
 #' @param n Number of trials
 #' @param m Number of successes
 #' @return A ggplot object
@@ -34,6 +35,7 @@ bernoulli_likelihood <- function(n, m){
 #' @examples
 #' beta_plot(2, 2)
 #' beta_plot(10, 5)
+#' @export
 beta_plot <- function(alpha, beta, show_hpd = FALSE){
 
   data_df <- tibble(x = seq(0, 1, length.out = 1000),
@@ -73,6 +75,7 @@ beta_plot <- function(alpha, beta, show_hpd = FALSE){
 #' @examples
 #' bernoulli_posterior_plot(250, 139, 5, 5)
 #' bernoulli_posterior_plot(100, 60, 2, 2)
+#' @export
 bernoulli_posterior_plot <- function(n, m, alpha, beta, show_hpd = FALSE){
   beta_plot(m + alpha, n - m + beta)
 }
@@ -84,6 +87,7 @@ bernoulli_posterior_plot <- function(n, m, alpha, beta, show_hpd = FALSE){
 #' @return A list with lower and upper bound of the HPD interval, and minimum density.
 #' @examples
 #' get_beta_hpd(10, 5)
+#' @export
 get_beta_hpd <- function(alpha, beta){
   # This will break if either alpha < 1.0 or beta < 1.0
   # or alpha = beta = 1.0
@@ -149,6 +153,7 @@ get_beta_hpd <- function(alpha, beta){
 #' @return A list with summary statistics of the Beta distribution
 #' @examples
 #' beta_summary(3, 5)
+#' @export
 beta_summary <- function(alpha, beta){
   mean <- alpha/(alpha+beta)
   var <- (alpha*beta)/( (alpha+beta)^2 * (alpha + beta + 1))
@@ -170,6 +175,7 @@ beta_summary <- function(alpha, beta){
 #' @return A list with summary statistics of the posterior distribution
 #' @examples
 #' bernoulli_posterior_summary(3, 5)
+#' @export
 bernoulli_posterior_summary <- function(n, m, alpha, beta){
   beta_summary(m + alpha, n - m + beta)
 }
