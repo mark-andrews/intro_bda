@@ -77,7 +77,7 @@ beta_plot <- function(alpha, beta, show_hpd = FALSE){
 #' bernoulli_posterior_plot(100, 60, 2, 2)
 #' @export
 bernoulli_posterior_plot <- function(n, m, alpha, beta, show_hpd = FALSE){
-  beta_plot(m + alpha, n - m + beta)
+  beta_plot(m + alpha, n - m + beta, show_hpd = show_hpd)
 }
 
 #' The high posterior density interval of a Beta distribution.
