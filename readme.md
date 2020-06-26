@@ -44,6 +44,7 @@ There are six main pieces of software to install:
     language.
 -   [brms](https://github.com/paul-buerkner/brms): An R package to
     interface with [Stan](http://mc-stan.org/).
+-   An ad hoc R package named `priorexposure`.
 
 All of the above installation should be easy and painless except
 possibly for the installation of [Stan](http://mc-stan.org/), which can
@@ -164,6 +165,15 @@ data_df <- tibble(x = rnorm(10))
 
 M <- brm(x ~ 1, data = data_df)
 ```
+
+## `priorexposure`
+
+The `priorexposure` package is a small ad hoc package just for this tutorial.
+It is available on GitHub and can be installed as follows using `devtools`:
+```r
+devtools::install_git("https://github.com/mark-andrews/intro_bda.git", subdir = "priorexposure")
+```
+If `devtools` is not available, install it with `install.packages('devtools')`.
 
 ## Trouble getting `rstan` and `brms` working on Windows using R 4.0?
 
