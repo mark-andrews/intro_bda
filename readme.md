@@ -151,13 +151,13 @@ models.
 To get [brms](https://github.com/paul-buerkner/brms), first start
 Rstudio (whether on Windows, Macs, Linux) and then run
 
-``` {.R}
+```r
 install.packages('brms')
 ```
 
 You can test that it worked by running the following code, which should take around 1 minute to complete.
 
-``` {.R}
+```r
 library(tidyverse)
 library(brms)
 
@@ -180,30 +180,30 @@ If `devtools` is not available, install it with `install.packages('devtools')`.
 Here's what I did to get `rstan` and `brsm` working on Windows using R 4.0?
 
 1. First, in R, install `rstan`.
-```{.R}
+```r
 install.packages("rstan")
 ```
 
 2. In Windows, download and run this [Rtools 4 installer](https://cran.r-project.org/bin/windows/Rtools/rtools40-x86_64.exe).
 
 3. Back in R, type the following line.
-```{.R}
+```r
 writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")
 ```
 
 4. *Restart R*
 
 5. Check that RTools is working.
-```{.R}
+```r
 pkgbuild::has_build_tools(debug = TRUE)
 ```
 This should simply return `TRUE`.
 
 6. Install `brms`.
-```{.R}
+```r
 
 install.packages('brms')
 ```
 
 7. Test the `brms` code above, i.e. with the `M <- brm(x ~ 1, data = data_df)`.
-```
+
